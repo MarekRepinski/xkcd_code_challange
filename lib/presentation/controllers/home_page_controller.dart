@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:xkcd_code_challange/core/constants/constants.dart';
 import 'package:xkcd_code_challange/data/services/services.dart';
+import 'package:share_plus/share_plus.dart';
 
 class HomePageController extends GetxController {
   HomePageController();
@@ -39,6 +40,10 @@ class HomePageController extends GetxController {
       await Future.delayed(const Duration(milliseconds: 500));
       Get.offNamed(Pages.loading.name);
     }
+  }
+
+  void sharePicture(index){
+    Share.share(_db.comicsList[index].img);
   }
 
   void showExplaination(index){

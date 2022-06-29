@@ -52,10 +52,16 @@ class HomePage extends StatelessWidget {
                           const SizedBox(
                             width: 8.0,
                           ),
-                          const Icon(
-                            Icons.share,
-                            color: Colors.black,
-                            size: 30,
+                          InkWell(
+                            splashColor: Colors.blue.withAlpha(30),
+                            onTap: () {
+                              _controller.sharePicture(position);
+                            },
+                            child: const Icon(
+                              Icons.share,
+                              color: Colors.black,
+                              size: 30,
+                            ),
                           ),
                           const SizedBox(
                             width: 8.0,
