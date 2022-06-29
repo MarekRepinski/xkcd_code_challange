@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final PageController pageController =
-    PageController(initialPage: _db.currentComicIndex.value);
+        PageController(initialPage: _db.currentComicIndex.value);
     return PageView.builder(
       controller: pageController,
       itemCount: _db.comicsList.length,
@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
         _controller.checkForLoading(position);
         return Scaffold(
           appBar: AppBar(
-            title: Text(
+            title: const Text(
               'XKCD Comics',
             ),
             centerTitle: true,
@@ -44,12 +44,45 @@ class HomePage extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            const Icon(
+                              Icons.info_outline,
+                              color: Colors.black,
+                              size: 30,
+                            ),
+                            const SizedBox(
+                              width: 8.0,
+                            ),
+                            const Icon(
+                              Icons.share,
+                              color: Colors.black,
+                              size: 30,
+                            ),
+                            const SizedBox(
+                              width: 8.0,
+                            ),
+                            InkWell(
+                              splashColor: Colors.red.withAlpha(30),
+                              onTap: () {
+                                _controller.toggleFavo(position);
+                              },
+                              child: Obx(() {
+                                return _controller.favoIcon.value;
+                              }),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 8.0,
+                      ),
                       Text(
                         _db.comicsList[position].title,
-                        style: Theme.of(context)
-                            .textTheme
-                            .headlineSmall
-                            ?.merge(
+                        style: Theme.of(context).textTheme.headlineSmall?.merge(
                             const TextStyle(fontWeight: FontWeight.bold)),
                       ),
                       const SizedBox(
