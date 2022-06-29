@@ -10,6 +10,7 @@ class Comic {
   final String transcript;
   final String link; //Unknown use
   final String news;  //Unknown use
+  bool favo = false;
 
   Comic({
     required this.id,

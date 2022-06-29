@@ -6,16 +6,11 @@ import 'package:xkcd_code_challange/data/services/services.dart';
 class DataBaseService extends GetxController {
   final HttpService httpService = Get.put(HttpService());
   Rxn<Comic> comic = Rxn<Comic>();
-  List<Comic> comicsList = <Comic>[];
+  RxList<Comic> comicsList = RxList<Comic>();
   RxInt lastComicID = RxInt(-1);
   RxInt currentComicIndex = RxInt(-1);
   int lastIndex = -1;
   int offSet = 20;
-
-  @override
-  void onInit() {
-    super.onInit();
-  }
 
   Future<void> getLastComic() async {
     comic.value = await httpService.getComic(null);
@@ -46,5 +41,10 @@ class DataBaseService extends GetxController {
 
   Future<void> getComic(int? index) async {
     comic.value = await httpService.getComic(index);
+  }
+
+  void toggleFavo(int id){
+    //Should be stored in Back-end or at least in GetStorgae
+    comicsList[id].favo = !comicsList[id].favo;
   }
 }
