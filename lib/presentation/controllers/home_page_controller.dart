@@ -6,8 +6,8 @@ import 'package:xkcd_code_challange/data/services/services.dart';
 
 class HomePageController extends GetxController {
   HomePageController();
-
   final DataBaseService _db = Get.find();
+
   Icon theFavoIcon = const Icon(
     Icons.favorite,
     color: Colors.red,
@@ -39,6 +39,11 @@ class HomePageController extends GetxController {
       await Future.delayed(const Duration(milliseconds: 500));
       Get.offNamed(Pages.loading.name);
     }
+  }
+
+  void showExplaination(index){
+    _db.changeCurrentComicID(_db.comicsList[index].id);
+    Get.toNamed(Pages.xkcdExplain.name);
   }
 
   void toggleFavo(int index) {

@@ -14,5 +14,9 @@ class RouteCollection {
       name: Pages.loading.name,
       page: () => LoadingPage(),
     ),
+    GetPage(
+      name: Pages.xkcdExplain.name,
+      page: () => XkcdExplain(),
+    ),
   ];
 }

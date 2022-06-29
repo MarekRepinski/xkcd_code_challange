@@ -9,6 +9,7 @@ class DataBaseService extends GetxController {
   RxList<Comic> comicsList = RxList<Comic>();
   RxInt lastComicID = RxInt(-1);
   RxInt currentComicIndex = RxInt(-1);
+  int currentComicID = 0;
   int lastIndex = -1;
   int offSet = 20;
 
@@ -37,6 +38,10 @@ class DataBaseService extends GetxController {
       val = lastComicID.value;
     }
     currentComicIndex.value = val;
+  }
+
+  void changeCurrentComicID(int val) {
+    currentComicID = val;
   }
 
   Future<void> getComic(int? index) async {

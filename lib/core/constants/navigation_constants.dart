@@ -4,6 +4,7 @@ enum Pages {
   root,
   loading,
   homePage,
+  xkcdExplain,
 }
 
 extension PagesExtension on Pages {
@@ -15,6 +16,8 @@ extension PagesExtension on Pages {
         return '/loading';
       case Pages.homePage:
         return '/homePage';
+      case Pages.xkcdExplain:
+        return '/xkcdExplain';
     }
   }
 
@@ -27,6 +30,8 @@ extension PagesExtension on Pages {
         return 'Loading screen';
       case Pages.homePage:
         return 'XKCD Strip';
+      case Pages.xkcdExplain:
+        return 'XKCD Explained!';
     }
   }
 
@@ -39,6 +44,8 @@ extension PagesExtension on Pages {
         return Icons.download;
       case Pages.homePage:
         return Icons.home;
+      case Pages.xkcdExplain:
+        return Icons.info;
     }
   }
 }
