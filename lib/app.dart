@@ -15,7 +15,7 @@ class App extends StatelessWidget {
       title: 'Movie App Mobile - Level 1',
       initialBinding: RootBindings(),
       theme: basicTheme(),
-      initialRoute: Pages.homePage.name,
+      initialRoute: Pages.loading.name,
       getPages: RouteCollection.routeCollection,
     );
   }

@@ -10,5 +10,9 @@ class RouteCollection {
       name: Pages.homePage.name,
       page: () => HomePage(),
     ),
+    GetPage(
+      name: Pages.loading.name,
+      page: () => LoadingPage(),
+    ),
   ];
 }

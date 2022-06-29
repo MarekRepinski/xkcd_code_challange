@@ -24,8 +24,8 @@ class HttpService {
       news: '',
     );
 
-    if (id != null) {
-      comicLink = '$comicLinkHead/$id.toString()$comicLinkTail';
+    if (id != null && id > -1) {
+      comicLink = '$comicLinkHead/${id.toString()}$comicLinkTail';
     }
 
     Response res = await get(Uri.parse(comicLink));
