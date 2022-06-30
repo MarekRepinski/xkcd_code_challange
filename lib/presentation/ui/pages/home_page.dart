@@ -13,6 +13,20 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final PageController pageController =
         PageController(initialPage: _db.currentComicIndex.value);
+
+    if (_db.newStrip.value) {
+      _db.turnoutNewStripValue();
+      Get.snackbar(
+          'New Comic Strips!!',
+          'You have new strips to check out', // Message
+          colorText: Colors.black,
+          snackPosition: SnackPosition.BOTTOM,
+          icon: const Icon(Icons.info),
+          backgroundColor: Colors.white,
+          duration: const Duration(seconds: 2),
+          instantInit: false);
+    }
+
     return PageView.builder(
       controller: pageController,
       itemCount: _db.comicsList.length,
