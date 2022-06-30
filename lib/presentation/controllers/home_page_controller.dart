@@ -54,7 +54,6 @@ class HomePageController extends GetxController {
     final path = '${temp.path}/image.jpg';
     File(path).writeAsBytesSync(bytes);
     await Share.shareFiles([path], text: 'Image Shared');
-    // Share.share(_db.comicsList[index].img);
   }
 
   void showExplaination(index){
