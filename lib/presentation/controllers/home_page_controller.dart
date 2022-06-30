@@ -1,8 +1,12 @@
 import 'dart:async';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:xkcd_code_challange/core/constants/constants.dart';
 import 'package:xkcd_code_challange/data/services/services.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:http/http.dart';
 
 class HomePageController extends GetxController {
   HomePageController();
@@ -39,6 +43,18 @@ class HomePageController extends GetxController {
       await Future.delayed(const Duration(milliseconds: 500));
       Get.offNamed(Pages.loading.name);
     }
+  }
+
+  void sharePicture(index) async {
+    final imageurl = _db.comicsList[index].img;
+    final uri = Uri.parse(imageurl);
+    final response = await get(uri);
+    final bytes = response.bodyBytes;
+    final temp = await getTemporaryDirectory();
+    final path = '${temp.path}/image.jpg';
+    File(path).writeAsBytesSync(bytes);
+    await Share.shareFiles([path], text: 'Image Shared');
+    // Share.share(_db.comicsList[index].img);
   }
 
   void showExplaination(index){
