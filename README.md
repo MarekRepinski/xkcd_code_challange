@@ -2,6 +2,8 @@
 
 A Flutter project challange for Shortcut.
 
+**Note: Explanations and solution further down in the document.**
+
 ## The Challenge
 
 A client of ours has just discovered [xkcd comics](https://xkcd.com/).
@@ -41,24 +43,33 @@ She set the deadline to 3 days from your first commit but understands there are 
 
 > Ran over the time limit as birthday celebrations for auntie Linda had to be had. :beer:
 
-## The <strike>Hangover</strike> Handover
+## The implementation
+My aim was to finish all the tasks and deliver a sparkling fine MVP. But I ran out of time and also out of steam. I happened to be in Warsaw for the last days and that town got hit by a +30 degrees heatwave :sweat:. 
+But in four days, approx 24 hours effective working time, I got most of them. The ones a missed:
+- search for comics by the comic number as well as text,
+- favorite comics available offline too,
+- unit & integration tests,
 
-It's completely up to you to decide how to deliver the task. GitHub, Bitbucket or any other service that's easily accessible works great. You can also upload it to e.g. Google Drive or Dropbox if that's your cup of tea. Try to avoid email attachments though.
+Development of the search function got halted because "relevantxkcd.appspot.com" didn't seem to work, at all! I totally missed that favorite comics should be available offline, sorry. And testing... Well, that part always has low priority when it comes to deliver a MVP fast. And to be frank, I not so experienced in writing tests.
 
-Once uploaded, please drop your contact person from Shortcut an email with the link to the task. If you haven't been in touch with us yet, simply use the generic [post@shortcut.no](mailto:post@shortcut.no) email.
+## Solutions
+I used Flutter-framework with GetX to
+- separate logic code from design code,
+- handle states,
+- navigation
 
-We really appreciate the time and effort it took to complete the task! :heart: We promise to return the favor as best as we can.
+There's a controller to every page for logic code and a service which is injected at start.
 
-## The Review
+I used:
+- Http-plugin to handle communication with the API
+- Webview Flutter-plugin to embed a web-browser to display "www.explainxkcd.com"
+- Share Plus-plugin to share Comics as images
+- GetStorage-plugin to save favorites and discover new comics
 
-Please include a README file with a quick and dirty description of your solution, the thought process, and any points you'd like to highlight. It will help us during the review, where we'll look at:
+## Final words
 
-- your VCS history, with hopefully more than 1 commit,
-- the project structure,
-- the project architecture,
-- good coding practices,
-- consistent coding style and formatting,
-- namings and naming conventions,
-- good use of comments,
-- lint warnings and code smells
-- unit & integration tests
+It was a fun code challenge, which I managed to misspell in the project name :laughing:.
+The most challenging part was that the API was so lousy and slow... If I could talk to the Back-end people I would ask for a list of all comics, not just one at the time. As it is now you can't load them all in one go, it takes to long. But the API is also so slow sometimes. If you load the strips one by one the browsing will get very jerky. My solution was to load 20 strips at a time to a list. When you browse to the last one, then the list will be added with 20 more and so on. A loading screen is displayed so the user don't think that there's something wrong with his device.
+
+I think that is all,
+Thanks!
