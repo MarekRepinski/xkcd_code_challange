@@ -1,6 +1,7 @@
 # xkcd_code_challange
 
 A Flutter project challange for Shortcut.
+**Note: Explanations and solution further down in the document.**
 
 ## The Challenge
 
@@ -42,7 +43,8 @@ She set the deadline to 3 days from your first commit but understands there are 
 > Ran over the time limit as birthday celebrations for auntie Linda had to be had. :beer:
 
 ## The implementation
-My aim was to finish all the tasks and deliver a sparkling fine MVP. But I ran out of time and also out of steam. I happened to be in Warsaw for the last days and that town got hit by a +30 degrees heatwave. But in four days, approx 24 hours effective working time, I got most of them. The ones a missed:
+My aim was to finish all the tasks and deliver a sparkling fine MVP. But I ran out of time and also out of steam. I happened to be in Warsaw for the last days and that town got hit by a +30 degrees heatwave :sweat:. 
+But in four days, approx 24 hours effective working time, I got most of them. The ones a missed:
 - search for comics by the comic number as well as text,
 - favorite comics available offline too,
 - unit & integration tests,
@@ -65,8 +67,7 @@ I used:
 
 ## Final words
 
-It was a fun code challenge, which I managed to misspell in the project name :)
-The most challenging part was that the API was so lousy and slow... If I could talk to the Back-end people I would ask for a list of all comics, not just one at the time. As it is now you can't load them all in one go, it takes to long. But the API is also so slow sometimes. If you load the strips one by one the browsing will get very jerky. My solution to this was to load 20 strips at a time to a list. When you browse to the last one, then the list will be added with 20 more and so on. A loading screen is displayed so the user don't think that there's something wrong with his device.
-
+It was a fun code challenge, which I managed to misspell in the project name :laughing:
+The most challenging part was that the API was so lousy and slow... If I could talk to the Back-end people I would ask for a list of all comics, not just one at the time. As it is now you can't load them all in one go, it takes to long. But the API is also so slow sometimes. If you load the strips one by one the browsing will get very jerky. My solution was to load 20 strips at a time to a list. When you browse to the last one, then the list will be added with 20 more and so on. A loading screen is displayed so the user don't think that there's something wrong with his device.
 I think that is all,
 Thanks!
