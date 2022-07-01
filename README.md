@@ -67,7 +67,8 @@ I used:
 
 ## Final words
 
-It was a fun code challenge, which I managed to misspell in the project name :laughing:
+It was a fun code challenge, which I managed to misspell in the project name :laughing:.
 The most challenging part was that the API was so lousy and slow... If I could talk to the Back-end people I would ask for a list of all comics, not just one at the time. As it is now you can't load them all in one go, it takes to long. But the API is also so slow sometimes. If you load the strips one by one the browsing will get very jerky. My solution was to load 20 strips at a time to a list. When you browse to the last one, then the list will be added with 20 more and so on. A loading screen is displayed so the user don't think that there's something wrong with his device.
+
 I think that is all,
 Thanks!
