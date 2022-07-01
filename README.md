@@ -1,6 +1,7 @@
 # xkcd_code_challange
 
 A Flutter project challange for Shortcut.
+
 **Note: Explanations and solution further down in the document.**
 
 ## The Challenge
